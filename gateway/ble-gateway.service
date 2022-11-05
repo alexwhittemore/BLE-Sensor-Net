@@ -1,0 +1,14 @@
+[Unit]
+Description=Listen for BLE sensors
+After=network.target
+
+[Service]
+ExecStart=/home/pi/gateway_software/.env/bin/python3 -u /home/pi/gateway_software/ble-ad-gateway.py
+WorkingDirectory=/home/pi/gateway_software
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
